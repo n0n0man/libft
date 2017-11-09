@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/25 21:29:35 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/08/25 21:31:06 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/09 12:59:10 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putstr(char const *s, int fd)
 {
-	while (*str)
-        ft_putchar_fd(*str++, fd);
+	while (*s)
+		ft_putchar_fd(*s++, fd);
 }
