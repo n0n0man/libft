@@ -54,6 +54,8 @@ SRC_NAME =  ft_memset.c \
 
 OBJ_PATH = objs
 
+INC_PATH = includes
+
 CPPFLAGS = -Iincludes
 
 
@@ -90,5 +92,5 @@ fclean: clean
 re: fclean all
 
 norme:
-	norminette $(SRC)
-	norminette $(INC_PATH)*.h
+	@norminette $(SRC)
+	@norminette $(INC_PATH)/*.h
