@@ -6,13 +6,12 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/26 14:40:04 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/08/26 14:40:38 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/09 12:51:26 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-
+#include <string.h>
 
 #endif
