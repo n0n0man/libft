@@ -6,8 +6,13 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/09 16:16:42 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/09 16:18:07 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/09 16:25:18 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		isupper
+int		isupper(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	return (0);
+}
