@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 16:37:16 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 17:03:13 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 16:55:49 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 16:59:20 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <string.h>
+#include <stdlib.h>
 
-void	ft_memdel(void **ap)
+char	*ft_strnew(size_t size)
 {
-	if (ap != NULL)
-	{
-		free(*ap);
-		*ap = NULL;
-	}
+	char	*str;
+
+	str = (char *)malloc(size);
+	if (str == NULL)
+		return (NULL);
+	ft_memset(str, (int)'\0', size + 1);
+	return (str);
 }

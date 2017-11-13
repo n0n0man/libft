@@ -1,23 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/13 16:37:16 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 17:03:13 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 19:08:42 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 19:28:57 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_memdel(void **ap)
+size_t	length(int n)
 {
-	if (ap != NULL)
+	size_t i;
+
+	i = 1;
+	while (n)
 	{
-		free(*ap);
-		*ap = NULL;
+		n /= 10;
+		i++;
 	}
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	size_t	len;
+	int		r;
+
+	len = length(n);
+	r = n;
+	if (n < 0)
+	{
+		r = -n;
+		len++;
+	}
+	str = ft_strnew(len);
+	if (str = NULL)
+		return (NULL);
+	while (r)
+	{
+		str[--len] = r % 10 + '0';
+		r /= 10;
+	}
+	if (n < 0)
+		*(str + 0) = '-';
+	return (str);
 }
