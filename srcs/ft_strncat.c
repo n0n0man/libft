@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 14:51:40 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 14:13:41 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 14:32:39 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
-	int		i;
-	int		n;
-	long	r;
+	char	*str1;
+	char	*str2;
 
-	i = 0;
-	n = 0;
-	r = 0;
-	while ((str[i] == '\n') || (str[i] == '\t')
-			|| (str[i] == '\v') || (str[i] == '\f')
-			|| (str[i] == ' ') || (str[i] == '\r'))
-		i++;
-	if (str[i] == '-')
-		r = 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	str1 = s1;
+	str2 = (char *)s2;
+	while (*str1 != '\0')
+		str1++;
+	while (*str2 != '\0' && n > 0)
 	{
-		n *= 10;
-		n += str[i] - 48;
-		i++;
+		*str1 = *str2;
+		str1++;
+		str2++;
+		n--;
 	}
-	if (r == 1)
-		return (-n);
-	return (n);
+	*str1 = '\0';
+	return (str1);
 }

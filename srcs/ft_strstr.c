@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 14:51:40 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 15:45:10 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 16:08:55 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-int		ft_atoi(const char *str)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	int		i;
-	int		n;
-	long	r;
+	char	*h;
+	char	*n;
+	size_t	len;
 
-	i = 0;
-	n = 0;
-	r = 0;
-	while ((str[i] == '\n') || (str[i] == '\t')
-			|| (str[i] == '\v') || (str[i] == '\f')
-			|| (str[i] == ' ') || (str[i] == '\r'))
-		i++;
-	if (str[i] == '-')
-		r = 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	h = (char *)haystack;
+	n = (char *)needle;
+	if (*n == '\0')
+		return (h);
+	len = ft_strlen(n);
+	while (*h != '\0')
 	{
-		n *= 10;
-		n += str[i] - 48;
-		i++;
+		if (*h == *n && ft_memcmp(h, n, len) == 0)
+			return (h);
+		h++;
 	}
-	if (r == 1)
-		return (-n);
-	return (n);
+	return (NULL);
 }

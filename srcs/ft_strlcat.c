@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 14:51:40 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 14:33:34 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 15:14:07 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int		i;
-	int		n;
-	long	r;
+	char	*ret;
+	char	*s;
+	size_t	len;
 
-	i = 0;
-	n = 0;
-	r = 0;
-	while ((str[i] == '\n') || (str[i] == '\t')
-			|| (str[i] == '\v') || (str[i] == '\f')
-			|| (str[i] == ' ') || (str[i] == '\r'))
-		i++;
-	if (str[i] == '-')
-		r = 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	ret = (char *)ft_memchr(dst, '\0', size);
+	if (ret == NULL)
+		return (size + ft_strlen(src));
+	s = (char *)src;
+	len = (size_t)(ret - dst) + ft_strlen(s);
+	while ((size_t)(ret - dst) < size - 1 && *s != '\0')
 	{
-		n *= 10;
-		n += str[i] - 48;
-		i++;
+		*ret = *s;
+		ret++;
+		s++;
 	}
-	if (r == 1)
-		return (-n);
-	return (n);
+	*ret = '\0';
+	return (len);
 }

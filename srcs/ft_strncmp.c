@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 14:51:40 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 16:16:07 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 16:18:18 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	int		i;
-	int		n;
-	long	r;
+	size_t	len1;
+	size_t	len2;
+	size_t	len;
 
-	i = 0;
-	n = 0;
-	r = 0;
-	while ((str[i] == '\n') || (str[i] == '\t')
-			|| (str[i] == '\v') || (str[i] == '\f')
-			|| (str[i] == ' ') || (str[i] == '\r'))
-		i++;
-	if (str[i] == '-')
-		r = 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		n *= 10;
-		n += str[i] - 48;
-		i++;
-	}
-	if (r == 1)
-		return (-n);
-	return (n);
+	len1 = ft_strlen(s1) + 1;
+	len2 = ft_strlen(s2) + 1;
+	len = (len1 <= len2) ? len1 : len2;
+	len = (len <= n) ? len : n;
+	i = ft_memcmp(s1, s2, len);
+	return (i);
 }
