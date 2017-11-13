@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 12:35:49 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/13 12:03:09 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/13 12:14:49 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
-{
-	int		i;
-	int		n;
-	long	r;
+#include "libft.h"
 
+void	*memchr(const void *s, int c, size_t n)
+{
+	unsigned char	tofind;
+	unsigned char	*ptr;
+	int				i;
+
+	tofind = (unsigned char)c;
+	ptr = (unsigned char *)s;
 	i = 0;
-	n = 0;
-	r = 0;
-	while ((str[i] == '\n') || (str[i] == '\t')
-			|| (str[i] == '\v') || (str[i] == '\f')
-			|| (str[i] == ' ') || (str[i] == '\r'))
-		i++;
-	if (str[i] == '-')
-		r = 1;
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i] >= '0' && str[i] <= '9')
+	while (n--)
 	{
-		n *= 10;
-		n += str[i] - 48;
+		if (ptr[i] == tofind)
+			return (ptr + i);
 		i++;
 	}
-	if (r == 1)
-		return (-n);
-	return (n);
+	return (NULL);
 }
