@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 15:36:48 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 15:44:31 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/13 16:51:54 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ char	*strrchr(const char *s, int c)
 	size_t	len;
 
 	len = ft_strlen(s);
+	str = (char *)s;
 	while (len > 0)
 	{
 		if (str[len] == (char)c)
