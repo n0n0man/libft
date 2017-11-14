@@ -5,20 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 11:00:23 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 13:33:10 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/14 13:40:06 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/14 13:48:15 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
-#include <unistd.h>
-#include <stdlib.h>
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char str[len];
+	char	*dest;
+	char	*srce;
+	size_t	i;
 
-	ft_memcpy(str, src, len);
-	ft_memcpy(dst, str, len);
-	return (dst);
+	dest = (char *)dst;
+	srce = (char *)src;
+	i = 0;
+	if (srce < dest)
+	{
+		while (len--)
+			dest[len] = srce[len];
+	}
+	else
+		ft_memcpy(dest, srce, len);
+	return (dest);
 }
