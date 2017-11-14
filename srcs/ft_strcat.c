@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 13:20:22 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 14:32:11 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/14 11:48:58 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ char	*ft_strcat(char *s1, const char *s2)
 		str2++;
 	}
 	*str1 = '\0';
-	return (str1);
+	return (s1);
 }

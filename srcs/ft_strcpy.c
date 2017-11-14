@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 13:11:46 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 13:17:20 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/14 11:43:59 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ char	*ft_strcpy(char *dst, const char *src)
 		dst[l] = src[l];
 		l++;
 	}
+	dst[l] = '\0';
 	return (dst);
 }

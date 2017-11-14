@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 14:44:38 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 11:16:42 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/14 12:13:59 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_atoi(const char *str)
 {
-	int		i;
-	int		n;
+	long	i;
+	long	n;
 	long	r;
 
 	i = 0;
@@ -37,5 +37,5 @@ int		ft_atoi(const char *str)
 	}
 	if (r == 1)
 		return (-n);
-	return (n);
+	return ((int)n);
 }
