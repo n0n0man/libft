@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 13:40:06 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 14:04:32 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/14 14:39:36 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/14 14:42:28 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*dest;
-	char	*srce;
+	t_list	*next;
 
-	dest = (char *)dst;
-	srce = (char *)src;
-	if (srce < dest)
+	while (*alst != NULL)
 	{
-		while (len--)
-			dest[len] = srce[len];
+		next = (*alst)->next;
+		ft_lstdelone(alst, del);
+		*alst = next;
 	}
-	else
-		ft_memcpy(dest, srce, len);
-	return (dest);
 }

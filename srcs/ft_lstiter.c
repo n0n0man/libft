@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/14 13:40:06 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 14:04:32 by nschwarz         ###   ########.fr       */
+/*   Created: 2017/11/14 14:49:46 by nschwarz          #+#    #+#             */
+/*   Updated: 2017/11/14 14:55:26 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem))
 {
-	char	*dest;
-	char	*srce;
+	t_list	*next;
 
-	dest = (char *)dst;
-	srce = (char *)src;
-	if (srce < dest)
+	while (lst)
 	{
-		while (len--)
-			dest[len] = srce[len];
+		next = lst->next;
+		f(lst);
+		lst = next;
 	}
-	else
-		ft_memcpy(dest, srce, len);
-	return (dest);
 }
