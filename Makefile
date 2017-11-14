@@ -50,18 +50,17 @@ SRC_NAME =  ft_memset.c \
              ft_putchar_fd.c \
              ft_putstr_fd.c \
              ft_putendl_fd.c \
-             ft_putnbr.c \
 
 SRC_PATH = srcs
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
-OBJ= $(FILES:%.c=%.o)
+OBJ = $(SRC_NAME:%.c=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		ar rcs $(NAME) $(SRC)
+		ar rc $(NAME) $(SRC)
 
 $(OBJ): $(SRC)
 	gcc $(CFLAGS) $(SRC)
