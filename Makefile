@@ -60,7 +60,7 @@ SRC_NAME =  ft_memset.c \
 			 ft_lstiter.c \
 			 ft_lstmap.c \
 
-SRC_PATH = srcs
+SRC_PATH = .
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
 
