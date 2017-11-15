@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 17:22:56 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 12:51:41 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/15 11:33:35 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	char	*str;
 	size_t	i;
 
+	if (!s || !f)
+		return (NULL);
 	i = 0;
 	str = ft_strdup((const char *)s);
 	if (str == NULL)

@@ -6,7 +6,7 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 19:08:42 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 13:13:32 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/15 11:26:14 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-size_t	length(int n)
+static size_t	length(int n)
 {
 	size_t i;
 
@@ -28,7 +28,7 @@ size_t	length(int n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char				*str;
 	size_t				len;

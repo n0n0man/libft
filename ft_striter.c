@@ -6,12 +6,14 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 17:14:13 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/13 17:18:58 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/15 11:29:34 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char *))
 {
+	if (!s || !f)
+		return ;
 	while (*s != '\0')
 	{
 		f(s);

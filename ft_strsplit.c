@@ -6,13 +6,13 @@
 /*   By: nschwarz <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:59:50 by nschwarz          #+#    #+#             */
-/*   Updated: 2017/11/14 12:55:50 by nschwarz         ###   ########.fr       */
+/*   Updated: 2017/11/15 11:43:48 by nschwarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		master(char *str, char c)
+static int		master(char *str, char c)
 {
 	int		retourne;
 	int		i;
@@ -35,7 +35,7 @@ int		master(char *str, char c)
 	return (retourne);
 }
 
-char	*challenger(char *str, int *index, char c)
+static char		*challenger(char *str, int *index, char c)
 {
 	int		i;
 	int		a;
@@ -63,7 +63,7 @@ char	*challenger(char *str, int *index, char c)
 	return (retourne);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**retourne;
 	int		i;
@@ -71,6 +71,8 @@ char	**ft_strsplit(char const *s, char c)
 	int		a;
 	char	*str;
 
+	if (!s)
+		return (NULL);
 	str = (char *)s;
 	a = master(str, c);
 	if ((retourne = (char**)malloc(sizeof(char*) * (a + 1))) == 0)
