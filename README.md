@@ -1,3 +1,3 @@
 # libft
 
-Rerogramming of libc basic functions + extras.
+Reprogramming of libc basic functions + extras.
