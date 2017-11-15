@@ -1,3 +1,3 @@
 # libft
 
-Just the start of 42's libft project.
+Rerogramming of libc basic functions + extras.
